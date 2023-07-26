@@ -1,0 +1,258 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Anton";
+max-width:1440px;
+}
+
+header {
+    position: relative;
+    top:0;
+    left:0;
+}
+
+picture {
+    width:1440px; 
+    object-fit: cover;
+}
+
+.nameAndLogo {
+    position: absolute;
+    width:10%;
+    top:25px;
+    left:35px;
+    color:white
+}
+
+h1 {
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 45px;
+    padding: 0 80px;
+    font-weight:400;
+    width: 890px;
+    height: 132px;
+    color: #FFD15B;
+}
+
+.searchBar {
+    display: flex;
+    position: absolute;
+    top: 400px;
+    left:700px;
+    transform:translate(-50%,-50%);
+    width: 954PX;
+    height:72px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+}
+
+.searchBar input {
+    width: 95%;
+    border-radius: 15px;
+    padding-left: 35px;
+    border: none;
+    font-family: "Manrope";
+    font-size: 16px;
+    color: #C6C6C6;
+
+}
+
+.searchBar button {
+    width: 5%;
+    color:#FFFFFF;
+    background-color: black;
+    margin:10px;
+    border-radius: 25%;
+    font-size: 30px;
+}
+
+main {
+    background-color:#C6C6C6;
+    max-width: 1440px;
+    width:1440px;
+}
+
+nav {
+    display:flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+    margin-top:-5px;
+    padding: 20px 100px;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: start;
+    width: 16%;
+    max-height: 315px;
+    margin-right: 60px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.titleAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titleAndButton h4 {
+    width: 90%;
+    font-family: "Manrope";
+}
+
+.titleAndButton button {
+    width: 10%;
+    border: none;
+    margin-right: 0;
+    margin-left: auto;
+    background-color:#FFFFFF;
+    text-align: end;
+
+
+}
+
+form {
+    display: flex;
+    width: 100%;
+    border: 1px solid #C6C6C6;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+form input {
+    width: 90%;
+    border:none;
+}
+
+form button {
+    border: none;
+    background-color: #FFFFFF;
+    color: #C6C6C6;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    font-family: "Manrope";
+    font-weight: 100;
+    padding-top: 10px;
+}
+
+nav h3 {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width:100%;
+    overflow-y: hidden;
+}
+
+.containerRecipes {
+    display:grid;
+    width:100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 45px;
+    padding: 45px 100px 40px 100px;
+}
+
+.recipeCard {
+    position: relative;
+    border-radius: 25px;
+    background-color:#FFFFFF;
+}
+
+figcaption {
+    padding: 35px 25px 35px 25px;
+    font-size: 20px;
+}
+
+.timeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width:70px;
+    height: 25px;
+    border-radius: 12.5px;
+    background-color: #FFD15B;
+}
+
+.timeContainer P {
+    font-family: "Manrope";
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.recipeCard img {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    object-fit: cover;
+    height: 250px;
+}
+
+.descriptionText {
+    padding: 20px 25px 40px 25px;
+    font-family: "Manrope";
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+ h5 {
+    font-family: "Manrope";
+    font-weight:bolder;
+    letter-spacing: 1.5px;
+    padding: 0 25px 0 25px;
+    color: #7A7A7A;
+}
+
+.ingredientsContainer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
+}
+
+.ingredientsContainer p {
+    font-family: "Manrope";  
+}
+
+.ingredientAndQuantityContainer {
+    padding: 0 0 30px 25px;
+}
+
+.ingredientName {
+    font-weight: bold;
+    color: black;
+}
+
+.ingredientQuantity {
+    display: flex;
+}
+
+
+
+
+
+

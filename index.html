@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title> Les Petits Plats</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jean-Michel Rochoy">
+        <meta name="description" content="site WEB qui répertorie des recettes de cuisine avec possibilité de selectionner des ingrédients 
+        spécifiques afin d'obtenir uniquement les recettes qui les contiennent ">
+        <link rel="stylesheet" href="style.css">
+        <script type = "module" src="mainPage.js" defer></script> 
+        <script src="https://kit.fontawesome.com/dae4393213.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <picture>
+                <img src="./assets/photo header.png" alt ="photo d'un plat pour header">
+            </picture>
+            <div class="nameAndLogo">
+                <img src="./assets/logo.png" alt ="logo avec écrit les petits plats">
+            </div>
+            <h1>CHERCHEZ PARMI PLUS DE <span>50</span> RECETTES DU QUOTIDIEN,SIMPLES ET D&Eacute;LICIEUSES</h2>
+            <form class="searchBar">
+                <input  type="text" placeholder="Rechercher une recette, un ingrédient..." size="90">
+                <button type="submit" class="fa-solid fa-magnifying-glass"></button>
+            </form>
+        </header> 
+        <main>
+            <nav>
+                <div class="searchContainer ingredientsText">
+                    <div class=" titleAndButton">
+                        <h4>ingrédients</h4>
+                        <button type="submit" class="fa-solid fa-chevron-down"></button>
+                    </div>
+                    <div class="search">
+                        <form>
+                            <input  type="text" placeholder="|" size="90">
+                            <button type="submit" class="fa-solid fa-magnifying-glass"></button> 
+                        </form>
+                        <ul>
+                            <li> potirons</li>
+                            <li>concombres</li>
+                            <li>fraises</li>
+                            <li>courgettes</li>
+                            <li>tomates</li>
+                            <li>haricots</li>
+                            <li>poivrons</li>
+                            <li>potimarron</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="searchContainer appliancesText">
+                    <div class=" titleAndButton">
+                        <h4>appareils</h4>
+                        <button class="fa-solid fa-chevron-down"></button>
+                    </div>
+                    <div class="search">
+                        <form>
+                            <input  type="text" placeholder="|" size="90">
+                            <button type="submit" class="fa-solid fa-magnifying-glass"></button> 
+                        </form>
+                        <ul>
+                            <li>robot</li>
+                            <li>mixeur</li>
+                            <li>four</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="searchContainer ustensilsText">
+                    <div class=" titleAndButton">
+                        <h4>ustensils</h4>
+                        <button class="fa-solid fa-chevron-down"></button>
+                    </div>
+                    <div class="search">
+                        <form>
+                            <input  type="text" placeholder="|" size="90">
+                            <button type="submit" class="fa-solid fa-magnifying-glass"></button> 
+                        </form>
+                        <ul>
+                            <li>fouet</li>
+                            <li>louche</li>
+                            <li>casserole</li>
+                            <li>poële</li>
+                            <li>couteau</li>
+                            <li>marmite</li>
+                            <li>bol</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3><span>50</span> recettes</h3>
+            </nav>
+            <section class="containerRecipes">
+            </section>    
+        </main>
+    </body>
+</html>
