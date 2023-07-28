@@ -91,7 +91,89 @@ const recipeCard = document.createElement("div");        // conteneur général 
     recipeCard.appendChild(ingredientsContainer);
 }
 
-console.log(ingredientsArray);
-console.log(ustensilsArray);
-console.log(applianceArray);
-console.log(applianceWithoutDoublons);
+var arrays = [];
+arrays[0] = arrayImprovement(ingredientsArray);
+arrays[1] = arrayImprovement(ustensilsArray);
+arrays[2] = arrayImprovement(applianceArray);
+console.log(arrays[0]);
+
+var containers = [];
+containers[0] = document.querySelector(".firstArray");
+containers[1] = document.querySelector(".secondArray");
+containers[2] = document.querySelector(".thirdArray");
+
+for (let r=0; r<3; r++ ) {
+    display(arrays[r], containers[r]);
+}
+
+
+function display (array, container) {
+for(let w = 0; w<array.length; w++){
+    var li = document.createElement("li");
+    li.innerText= array[w];
+    container.appendChild(li);
+    }
+}
+
+//------FONCTION POUR AMELIORER LES TABLEAUX EN SUPPRIMANT LES DOUBLANTS ET EN CLASSANT DANS L'ORDRE ALPHABETIQUE------------
+function arrayImprovement(array) {
+    var firstImprovement = arrayUnique(array);  
+    function arrayUnique(duplicateRemoved) {        //appel de la fonction "arrayUnique" afin de supprimer les doublons
+        let temporaryArrayFirst = new Array;        //création d'un tableau vide pour récupérer les éléments uniques
+        duplicateRemoved.forEach(element => {       // test pour chaque elements du tableau initial si déja "pushé" dans le nouveau tableau
+            if (temporaryArrayFirst.indexOf(element) ==-1) {
+                temporaryArrayFirst.push(element);      // ajout dans le nouveau tableau
+            }
+        });
+        return temporaryArrayFirst;
+    }
+
+    let secondImprovement = Array.from(firstImprovement); // on fait une copie du tableau initial
+        for (let t=0; t<firstImprovement.length; t++) {
+            secondImprovement.sort(function(a,b) {
+                return a.split(/\s*[\\,]*\s*/).join("").localeCompare(b.split(" ").join(""));  // test pour mettre dans l'ordre alphabétique             
+            });      
+        }
+
+    return secondImprovement   // retour du nouveau tableau (sans doublon et en ordre alphabétique)
+}
+
+const searchInput = document.querySelector(".search input");
+searchInput.addEventListener("keyup", function(event) {
+   let result= event.target;
+   let titi = result.parentNode.parentNode;
+   let tata = titi.classList[0];
+   console.log(tata);
+   let stringreceived = result.value.toLowerCase();
+   console.log(stringreceived);
+   let temporaryArraysort = new Array;
+   console.log(ingredientsOrderedWithoutDuplicatesArray);
+   temporaryArraysort = ingredientsOrderedWithoutDuplicatesArray.filter(element => {
+    return element.toLowerCase().startsWith(stringreceived);
+   });
+ console.log(temporaryArraysort);
+});
+
+var openOrCloseArrayDisplay = document.querySelectorAll(".titleAndButton button ");
+for(let z=0; z<3; z++) {
+    openOrCloseArrayDisplay[z].addEventListener("click", function arrayDisplay(event) {
+    console.log("coucou");
+    let choiceArray = event.target;
+    let getParent = choiceArray.parentNode.parentNode;
+    var display = getParent.querySelector(".search");
+    var chevronDirection = getParent.querySelector(".titleAndButton button");
+    var getStyle = getComputedStyle(display);
+    
+    if (getStyle.display==="flex"){
+        display.style.display = "none";
+        chevronDirection.className = "";
+        chevronDirection.className = "fa-solid fa-chevron-down";
+    }
+    else {
+        display.style.display = "flex"; 
+        chevronDirection.className = ""; 
+        chevronDirection.className = "fa-solid fa-chevron-up";
+
+    }
+});
+}
