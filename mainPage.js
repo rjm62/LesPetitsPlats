@@ -112,6 +112,10 @@ for(let w = 0; w<array.length; w++){
     var li = document.createElement("li");
     li.innerText= array[w];
     container.appendChild(li);
+    li.addEventListener("click", function addChoice(event) {
+        let textChoice = event.target;
+        choiceDisplay(textChoice.innerText);
+    });
     }
 }
 
@@ -157,7 +161,6 @@ searchInput.addEventListener("keyup", function(event) {
 var openOrCloseArrayDisplay = document.querySelectorAll(".titleAndButton button ");
 for(let z=0; z<3; z++) {
     openOrCloseArrayDisplay[z].addEventListener("click", function arrayDisplay(event) {
-    console.log("coucou");
     let choiceArray = event.target;
     let getParent = choiceArray.parentNode.parentNode;
     var display = getParent.querySelector(".search");
@@ -176,4 +179,29 @@ for(let z=0; z<3; z++) {
 
     }
 });
+}
+
+ //-----CREATION  DES CHOIX QUI S'AFFICHE SOUS LA BARRE DE "NAV" AVEC ECOUTE POUR SUPPRESSION--------
+
+function choiceDisplay(text) {
+    const choicesList = document.querySelector(".choicesList");
+    const choiceContainer = document.createElement("div");
+    choiceContainer.className = "choiceContainer";
+    const choice = document.createElement("p");
+    choice.innerText = text;
+    const closeIcon = document.createElement("div");
+    closeIcon.className ="closeIcon"
+    const X = document.createElement("i")
+    X.className = "fa-solid fa-x";
+    closeIcon.addEventListener("click", function removeChoice(event){
+        let removeChoice = event.target;
+        console.log(removeChoice);
+        let removeContainer = removeChoice.parentNode.parentNode;
+        removeContainer.style.display = "none";
+       });
+
+    closeIcon.appendChild(X);
+    choiceContainer.appendChild(choice);
+    choiceContainer.appendChild(closeIcon);
+    choicesList.appendChild(choiceContainer);
 }

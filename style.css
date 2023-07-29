@@ -3,7 +3,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family: "Anton";
-max-width:1440px;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1440px;
 }
 
 header {
@@ -91,6 +95,7 @@ nav {
     flex-direction: column;
     justify-content: center ;
     align-items: start;
+    /*margin: 0;*/
     width: 16%;
     max-height: 315px;
     margin-right: 60px;
@@ -165,12 +170,17 @@ nav h3 {
     overflow-y: hidden;
 }
 
+ul li {
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .containerRecipes {
     display:grid;
     width:100%;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 45px;
-    padding: 45px 100px 40px 100px;
+    padding: 0 100px 40px 100px;
 }
 
 .recipeCard {
@@ -234,7 +244,7 @@ figcaption {
 }
 
 .ingredientsContainer p {
-    font-family: "Manrope";  
+    font-family: "Manrope"; 
 }
 
 .ingredientAndQuantityContainer {
@@ -249,6 +259,42 @@ figcaption {
 .ingredientQuantity {
     display: flex;
 }
+
+.choicesList {
+    display:flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-top:-5px;
+    padding: 20px 100px;
+}
+
+.choiceContainer {
+    display:flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    align-items: center;
+    width: 205px;
+    height:50px;
+    border-radius: 15px;
+    background-color:#FFD15B;
+   
+}
+
+.choiceContainer p {
+    font-family: "Manrope";
+    font-weight: bold;
+}
+
+.choiceContainer .closeIcon {
+    cursor: pointer
+}
+
+
 
 
 
