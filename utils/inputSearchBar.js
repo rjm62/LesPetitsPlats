@@ -29,14 +29,15 @@ const searchBarInput = document.querySelector(".searchBar input");
                     }
                 }
             }
-            console.log(temporaryArrayInput);
-           
+            console.log(temporaryArrayInput);           
         } 
-        var riri=temporaryArrayInput;
-        console.log(riri);
-        return (riri);
+        console.log(temporaryArrayInput); 
+        var essai = temporaryArrayInput;
+        return (essai);
     });
+    console.log(essai); 
 }
+// console.log(roro); 
 
 
 

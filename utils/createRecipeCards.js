@@ -84,5 +84,7 @@ export function createRecipeCards(recipes) {
         recipeCard.appendChild(ingredientsTitle);
         recipeCard.appendChild(ingredientsContainer);
     }
-    return recipeCard;
+    
+    return ;
 }
+//console.log(data);

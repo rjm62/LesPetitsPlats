@@ -6,27 +6,28 @@ import {arrayImprovement} from "./utils/arrayImprovement.js";
 import {createRecipeCards} from "./utils/createRecipeCards.js";
 import {inputSearchBar} from './utils/inputSearchBar.js';
 
+
 var ingredientsArray = new Array();
 var applianceArray = new Array();
 var ustensilsArray = new Array();
 var applianceWithoutDoublons = new Array();
 
-
-/*createRecipeCards(recipes);
-inputSearchBar(recipes);*/
-async function init(data) {
+createRecipeCards(recipes);
+inputSearchBar(recipes);
+/*async function init(data) {
     inputSearchBar(data);
     createRecipeCards(recipes);
 }
 
 init(); 
+console.log(recipes);*/
 
 
 
 
 
 console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-/*
+
 //------------------CREATION DES FICHES RECETTES---------------------
 for(let i=0; i<recipes.length; i++) {
     const data = recipes[i];
@@ -185,4 +186,4 @@ for(let z=0; z<3; z++) {
 
     }
 });
-} */
+} 
