@@ -167,7 +167,7 @@ nav h3 {
     flex-direction: column;
     align-items: start;
     width:100%;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 ul li {
