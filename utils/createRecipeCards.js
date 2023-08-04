@@ -1,12 +1,14 @@
 export function createRecipeCards(recipes) {
+    const containerRecipes = document.querySelector(".containerRecipes"); // intégration des enfants dans l'élément parent
+    containerRecipes.innerHTML="";
     var ingredientsAr = new Array();
     var applianceAr = new Array();
     var ustensilsAr = new Array();
     var applianceWithoutDoublons = new Array();
-
+    var fifi = [];
     for(let i=0; i<recipes.length; i++) {
-        const data = recipes[i];
         const recipeCard = document.createElement("div");        // conteneur général de la fiche
+        const data = recipes[i];
         recipeCard.className = "recipeCard";
         recipeCard.style.display = "flex";
         recipeCard.style.flexDirection = "column";
@@ -74,17 +76,22 @@ export function createRecipeCards(recipes) {
         }
 
         applianceAr.push(data.appliance);
-
-        const containerRecipes = document.querySelector(".containerRecipes"); // intégration des enfants dans l'élément parent
         containerRecipes.appendChild(recipeCard);
+        
+
         recipeCard.appendChild(img);
         recipeCard.appendChild(figcaption);
         recipeCard.appendChild(timeContainer);
         recipeCard.appendChild(recipeDescription);
         recipeCard.appendChild(ingredientsTitle);
         recipeCard.appendChild(ingredientsContainer);
+        
+              
+        fifi.push(recipeCard);
+        console.log(fifi);
+        
     }
-    
-    return ;
+
+    console.log(`ligne 93 ${fifi}`);
+    return fifi
 }
-//console.log(data);

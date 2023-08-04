@@ -1,9 +1,10 @@
 import recipes from './data/recipes.js'; //récupération des recettes depuis le fichier recipes.js
-console.log(recipes);
+//console.log(recipes);
 
 import {choiceDisplay} from "./utils/tag.js";
 import {arrayImprovement} from "./utils/arrayImprovement.js";
 import {createRecipeCards} from "./utils/createRecipeCards.js";
+// import {filterRecipes} from './utils/filterRecipes.js';
 import {inputSearchBar} from './utils/inputSearchBar.js';
 
 
@@ -11,9 +12,18 @@ var ingredientsArray = new Array();
 var applianceArray = new Array();
 var ustensilsArray = new Array();
 var applianceWithoutDoublons = new Array();
+// let filteredRecipes = (recipes);
 
+// let fufu= [];
+//  fufu = createRecipeCards(recipes);
+// console.log(fufu);
+// filteredRecipes = filterRecipes(filteredRecipes);
+// const searchBarInput = document.querySelector(".searchBar input");
+    // searchBarInput.addEventListener("keyup", inputSearchBar());
 createRecipeCards(recipes);
-inputSearchBar(recipes);
+ inputSearchBar(recipes);
+console.log(`555555555+filterRecipes: ${recipes}`);
+
 /*async function init(data) {
     inputSearchBar(data);
     createRecipeCards(recipes);
@@ -27,7 +37,7 @@ console.log(recipes);*/
 
 
 console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-
+/*
 //------------------CREATION DES FICHES RECETTES---------------------
 for(let i=0; i<recipes.length; i++) {
     const data = recipes[i];
@@ -77,7 +87,7 @@ const recipeCard = document.createElement("div");        // conteneur général 
         const ingredientName = document.createElement("p");
         ingredientName.className = "ingredientName";
         ingredientName.innerText = data.ingredients[j].ingredient;
-        console.log( data.ingredients[j].ingredient);
+        //console.log( data.ingredients[j].ingredient);
         ingredientsArray.push(data.ingredients[j].ingredient);
         const ingredientQuantity = document.createElement("div");
         ingredientQuantity.className = "ingredientQuantity";
@@ -135,10 +145,10 @@ for (let r=0; r<3; r++ ) {
 function display (array, container) {
     container.innerHTML ="";
 for(let w = 0; w<array.length; w++){
-    console.log("coucou");
+  
     var li = document.createElement("li");
     li.innerText= array[w];
-    console.log(li.innerText);
+
     container.appendChild(li);
     li.addEventListener("click", function addChoice(event) {
         let textChoice = event.target;
@@ -146,7 +156,7 @@ for(let w = 0; w<array.length; w++){
     });
     }
 }
-
+/*
 const searchInput= document.querySelectorAll(".search input");
 for(let s=0; s<3; s++) {
 searchInput[s].addEventListener("keyup", function(event) {
@@ -186,4 +196,4 @@ for(let z=0; z<3; z++) {
 
     }
 });
-} 
+} */
