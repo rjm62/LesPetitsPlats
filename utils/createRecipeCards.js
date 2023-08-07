@@ -60,6 +60,7 @@ export function createRecipeCards(recipes) {
                 quantity.innerText = data.ingredients[j].quantity;
             }
             const unit = document.createElement("p");
+            unit.className ="unit";
             if(data.ingredients[j].unit!= undefined) {
                 unit.innerText = data.ingredients[j].unit;
             }
@@ -88,10 +89,30 @@ export function createRecipeCards(recipes) {
         
               
         fifi.push(recipeCard);
-        console.log(fifi);
+        // console.log(fifi);
         
     }
+    // affichage du nombre de recettes selectionnées par input
+    let recipesNumber = document.querySelector("main nav h3 #recipesNumber "); 
+    
+    let nb = recipes.length>1 ? "s" :"";
+    recipesNumber.textContent = recipes.length+" "+"recette"+nb;
+   
+    // vérification si au moins une recette est sélectionnée. Sinon on affiche un message
+    var message = document.querySelector(".message");
+    if(recipes.length==0) { 
+        let inputValue = document.querySelector(".searchBar input");
+        let value= inputValue.value.toUpperCase();
+        let openMessageDisplay = document.querySelector(".message");
+        openMessageDisplay.style.display = "flex";
+        let input=document.querySelector(".message #input");
+        input.textContent = value;
+        message.style.display= "flex";
+    }   
+    else {
+         message.style.display = "none";
+    }
 
-    console.log(`ligne 93 ${fifi}`);
+    // console.log(`ligne 93 ${fifi}`);
     return fifi
 }

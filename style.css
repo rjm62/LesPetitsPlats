@@ -162,6 +162,14 @@ nav h3 {
     margin-left: auto;
 }
 
+.message {
+    display:none;
+    justify-content: center;
+    font-family: "Manrope";
+    font-size: 20px;
+    padding-bottom: 80px;
+}
+
 .search {
     display: none;
     flex-direction: column;
@@ -258,6 +266,11 @@ figcaption {
 
 .ingredientQuantity {
     display: flex;
+}
+
+.unit {
+    display: flex;
+    padding-left: 6px;
 }
 
 .choicesList {
