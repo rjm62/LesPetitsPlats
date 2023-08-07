@@ -1,6 +1,10 @@
 import { createRecipeCards } from "./createRecipeCards.js";
 import { recipesWithoutAccent } from "./createRecipesWithoutAccent.js";
 export function inputSearchBar(originList, list){
+
+   // ouaissssssssss ça marche
+   // Enfin je pensais..........
+
     let array =[];
     var beforeFirstLetter =1;
     const searchBarInput = document.querySelector(".searchBar input");
