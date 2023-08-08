@@ -43,15 +43,21 @@ export function inputSearchBar(originList, list){
         if(result.value.length>2) {
             let array1 = list.filter(recipe => recipe.name.toLowerCase().includes(" "+stringreceived));
                 // ||recipe.description.toLowerCase().includes(" "+stringreceived));
-                let reduceArray = list.filter(val =>!array1.includes(val));
-            let array2 = reduceArray.filter(recipe => recipe.description.toLowerCase().includes(" "+stringreceived))
+                let reduceArrayFirst = list.filter(val =>!array1.includes(val));
+            let array2 = reduceArrayFirst.filter(recipe => recipe.description.toLowerCase().includes(" "+stringreceived))
             console.log(list);
-            console.log(array1);
+            console.log(reduceArrayFirst);
             console.log(array2);
             
+            
+            let reduceArraySecond = reduceArrayFirst.filter(val => !array2.includes(val));
+            
+            console.log(reduceArraySecond);
+            
             array = array1.concat(array2);
+
             console.log(array);
-            list.forEach(element => {  
+            reduceArraySecond.forEach(element => {  
                 for(let i = 0; i<element.ingredients.length; i++) {
                     const ingredient = element.ingredients[i].ingredient;
                     if(ingredient.toLowerCase().includes(" "+stringreceived) && !array.includes(element)) {
