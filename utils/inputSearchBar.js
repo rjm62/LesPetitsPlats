@@ -29,40 +29,30 @@ export function inputSearchBar(originList, list){
             for(let l=0; l<accentLetterArray.length; l++) {
                 if (stringreceived.charAt(k)== accentLetterArray[l]) {
                     var stringreceived = stringreceived.replace(stringreceived[k], withoutletterArray[l]);
-                    console.log("ok");
-                    console.log(stringreceived);
                 }
             }
         }
 
-
         if(result.value.length>2) {
             let array1 = list.filter(recipe => recipe.name.toLowerCase().includes(" "+stringreceived));
-                // ||recipe.description.toLowerCase().includes(" "+stringreceived));
-                let reduceArray = list.filter(val =>!array1.includes(val));
-            let array2 = reduceArray.filter(recipe => recipe.description.toLowerCase().includes(" "+stringreceived))
-            console.log(list);
-            console.log(array1);
-            console.log(array2);
+            let reduceArrayFirst = list.filter(val =>!array1.includes(val));
+            let array2 = reduceArrayFirst.filter(recipe => recipe.description.toLowerCase().includes(" "+stringreceived)) 
+            let reduceArraySecond = reduceArrayFirst.filter(val => !array2.includes(val));
             
             array = array1.concat(array2);
-            console.log(array);
-            list.forEach(element => {  
-                for(let i = 0; i<element.ingredients.length; i++) {
-                    const ingredient = element.ingredients[i].ingredient;
-                    if(ingredient.toLowerCase().includes(" "+stringreceived) && !array.includes(element)) {
-                        array.push(element);
-                        console.log(array);
-                    }
+
+            reduceArraySecond.forEach(element => {  
+                var array3 = element.ingredients.filter(recipe => recipe.ingredient.toLowerCase().includes(" "+stringreceived));
+                if (array3.length> 0) {
+                    array.push(element);
                 }
-            });  
+            });
+
             var newList=[];
             for(let f =0; f<originList.length; f++) {
                 for(let d=0; d<array.length; d++) {
                     if (originList[f].id == array[d].id) {
                         newList.push(originList[f]);
-                        console.log(originList[f]);
-                        console.log(newList);
                     }
                 }
             }   
