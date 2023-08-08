@@ -76,61 +76,18 @@ export function inputSearchBar(originList, list){
             }
         }
         console.log(reduceArraySecond);
+        array = array1.concat(array2);
         
                 
-            // for( let i =0; i<list.length; i++) {
-            //     for (let m =0; m<list[i].ingredients.length; m++) {
-            //         // for (let j =0; j< list[i].ingredients[m].ingredient.length; j++) {
-            //             if (list[i].ingredients[m].ingredient.toLowerCase().includes(" "+stringreceived)==true) {
-            //                 array1.push(list[i]);
-            //                 console.log(array1);
-            //             }
-            //         // }
-                    
-            //     }
-            // }
-                
-
-            // let reduceArrayFirst =[];
-            // for(let i =0; i<list.length; i++) {
-            //     for(let j =0; j<array1.length; j++) {
-            //         if(list[i] != array1[j]) {
-            //             console.log("coucou");
-            //             for(let k =0; k<=reduceArrayFirst.length; k++){
-            //                 if(reduceArrayFirst[k] != list[i])
-            //                 console.log("toto");
-            //                 reduceArrayFirst.push(list[i]);
-            //                 console.log(reduceArrayFirst);
-            //             }
-            //         }
-            //     }
-            // }
-
-            // let array1 = list.filter(recipe => recipe.name.toLowerCase().includes(" "+stringreceived));
-            //     // ||recipe.description.toLowerCase().includes(" "+stringreceived));
-            //     let reduceArrayFirst = list.filter(val =>!array1.includes(val));
-            // let array2 = reduceArrayFirst.filter(recipe => recipe.description.toLowerCase().includes(" "+stringreceived))
-            // console.log(list);
-            // console.log(reduceArrayFirst);
-            // console.log(array2);
-            
-            
-            // let reduceArraySecond = reduceArrayFirst.filter(val => !array2.includes(val));
-            
-            // console.log(reduceArraySecond);
-            
-            // array = array1.concat(array2);
-
-            // console.log(array);
-            // reduceArraySecond.forEach(element => {  
-            //     for(let i = 0; i<element.ingredients.length; i++) {
-            //         const ingredient = element.ingredients[i].ingredient;
-            //         if(ingredient.toLowerCase().includes(" "+stringreceived) && !array.includes(element)) {
-            //             array.push(element);
-            //             console.log(array);
-            //         }
-            //     }
-            // });  
+            for( let i =0; i<reduceArraySecond.length; i++) {
+                for (let m =0; m<reduceArraySecond[i].ingredients.length; m++) {
+                    if (reduceArraySecond[i].ingredients[m].ingredient.toLowerCase().includes(" "+stringreceived)==true) {
+                            array.push(reduceArraySecond[i]);
+                            console.log(array);
+                    }  
+                }
+            }
+           
             var newList=[];
             for(let f =0; f<originList.length; f++) {
                 for(let d=0; d<array.length; d++) {
