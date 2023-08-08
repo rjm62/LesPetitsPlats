@@ -42,30 +42,54 @@ export function inputSearchBar(originList, list){
 
         if(result.value.length>2) {
             var array1 = [];
+            var array2 = [];
             for( let i =0; i<list.length; i++) {
                 if (list[i].name.toLowerCase().includes(" "+stringreceived)==true){
                     array1.push(list[i]);
                     console.log(array1);
                 } 
-                
-                if(list[i].description.toLowerCase().includes(" "+stringreceived)==true) {
-                    array1.push(list[i]);
-                    console.log(array1);
-                }
             }
-
-            for (let m=0; m<list[i].ingredients.length; i++) {
-                for (let j =0; j< list.ingredients[i].ingredient.length; j++) {
-                    if (list.ingredients[i].ingredient[j].toLowerCase().includes(" "+stringreceived)==true) {
-                        array1.push(list[i]);
-                        console.log(array1);
+            let reduceArrayFirst = [];
+            for( let i =0; i<list.length; i++) {
+                reduceArrayFirst.push(list[i]);
+                for (let h =0; h<array1.length; h++) {
+                    if(list[i]==array1[h]) {
+                        reduceArrayFirst.pop();
                     }
                 }
-        
             }
-            
-        }
+        console.log(reduceArrayFirst);
 
+        for( let i =0; i<reduceArrayFirst.length; i++) {
+            if(reduceArrayFirst[i].description.toLowerCase().includes(" "+stringreceived)==true) {
+                array2.push(reduceArrayFirst[i]);
+                console.log(array2);
+            }
+        }
+        let reduceArraySecond = [];
+        for(let i =0; i<reduceArrayFirst.length; i++) {
+            reduceArraySecond.push(reduceArrayFirst[i]);
+            for (let h =0; h<array2.length; h++) {
+                if (reduceArrayFirst[i]==array2[h]) {
+                    reduceArraySecond.pop();
+                }
+            }
+        }
+        console.log(reduceArraySecond);
+        
+                
+            // for( let i =0; i<list.length; i++) {
+            //     for (let m =0; m<list[i].ingredients.length; m++) {
+            //         // for (let j =0; j< list[i].ingredients[m].ingredient.length; j++) {
+            //             if (list[i].ingredients[m].ingredient.toLowerCase().includes(" "+stringreceived)==true) {
+            //                 array1.push(list[i]);
+            //                 console.log(array1);
+            //             }
+            //         // }
+                    
+            //     }
+            // }
+                
 
             // let reduceArrayFirst =[];
             // for(let i =0; i<list.length; i++) {
@@ -120,7 +144,9 @@ export function inputSearchBar(originList, list){
             createRecipeCards(newList);
         } else {
             createRecipeCards(originList);
-     }
+        }
+    });
+}
    
 
 
