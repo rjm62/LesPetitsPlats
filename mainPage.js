@@ -8,7 +8,6 @@ import {createRecipeCards} from "./utils/createRecipeCards.js";
 import {inputSearchBar} from './utils/inputSearchBar.js';
 import {recipesWithoutAccent} from './utils/createRecipesWithoutAccent.js'
 
-
 var ingredientsArray = new Array();
 var applianceArray = new Array();
 var ustensilsArray = new Array();

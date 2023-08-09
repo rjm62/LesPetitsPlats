@@ -33,6 +33,11 @@ export function inputSearchBar(originList, list){
             }
         }
 
+        stringreceived =stringreceived.replace(/[s]\s+/g, " ");
+        if(stringreceived.charAt(stringreceived.length-1) == "s") {
+        stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), " ");
+        }
+
         if(result.value.length>2) {
             let array1 = list.filter(recipe => recipe.name.toLowerCase().includes(" "+stringreceived));
             let reduceArrayFirst = list.filter(val =>!array1.includes(val));
