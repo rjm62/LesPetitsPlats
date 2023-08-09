@@ -2,15 +2,11 @@ import { createRecipeCards } from "./createRecipeCards.js";
 import { recipesWithoutAccent } from "./createRecipesWithoutAccent.js";
 export function inputSearchBar(originList, list){
 
-   // ouaissssssssss ça marche
-   // Enfin je pensais..........
-
     var array =[];
     var beforeFirstLetter =1;
     const searchBarInput = document.querySelector(".searchBar input");
     searchBarInput.addEventListener("keyup", function(event) {
         let result= event.target;
-        console.log(result.value);
 
         //----- VERIFICATION SI LA PERSONNE N'A PAS COMMENCE PAR TAPER UN ESPACE-------------
         if(result.value.charCodeAt(0)==32 && beforeFirstLetter===1){ // la personne a entré un espace
@@ -33,10 +29,13 @@ export function inputSearchBar(originList, list){
             for(let l=0; l<accentLetterArray.length; l++) {
                 if (stringreceived.charAt(k)== accentLetterArray[l]) {
                     var stringreceived = stringreceived.replace(stringreceived[k], withoutletterArray[l]);
-                    console.log("ok");
-                    console.log(stringreceived);
                 }
             }
+        }
+
+        stringreceived =stringreceived.replace(/[s]\s+/g, " ");
+        if(stringreceived.charAt(stringreceived.length-1) == "s") {
+            stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), " ");
         }
 
 
