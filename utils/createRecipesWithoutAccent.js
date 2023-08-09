@@ -15,7 +15,8 @@ const withoutletterArray = ['a','a','a','e','e','e','e','i','i','i','i','o','o',
                 }
             }
         }
-        list[t].name = " "+list[t].name;
+        list[t].name = " "+list[t].name+" ";
+        list[t].name = list[t].name.replace(/[s]\s+/g, " ");
     }
 
     for(let t =0; t<list.length; t++){          
@@ -29,7 +30,8 @@ const withoutletterArray = ['a','a','a','e','e','e','e','i','i','i','i','o','o',
                 }
             }
         }
-        list[t].description= " "+list[t].description;
+        list[t].description= " "+list[t].description+" ";
+        list[t].description = list[t].description.replace(/[s]\s+/g, " ");
     }
 
 
@@ -43,7 +45,8 @@ for(let t =0; t<list.length; t++){
                     }
                 }
             }
-            list[t].ingredients[k].ingredient= " "+list[t].ingredients[k].ingredient;
+            list[t].ingredients[k].ingredient= " "+list[t].ingredients[k].ingredient+" ";
+            list[t].ingredients[k].ingredient = list[t].ingredients[k].ingredient.replace(/[s]\s+/g, " ");
             // console.log(list[t].ingredients[k].ingredient)
         }     
     }
