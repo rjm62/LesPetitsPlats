@@ -35,7 +35,7 @@ export function inputSearchBar(originList, list){
 
         stringreceived =stringreceived.replace(/[s]\s+/g, " ");
         if(stringreceived.charAt(stringreceived.length-1) == "s") {
-            stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), " ");
+            stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), "");
         }
 
 
