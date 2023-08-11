@@ -16,7 +16,15 @@ var applianceWithoutDoublons = new Array();
 
 const arrayWithoutAccent =recipesWithoutAccent(recipes);
 createRecipeCards(recipes);
- inputSearchBar(recipes,arrayWithoutAccent);
+const searchBarInput = document.querySelector(".searchBar input");
+searchBarInput.addEventListener("keyup", function(event) {
+    let result= event.target;
+    inputSearchBar(recipes,arrayWithoutAccent,result);
+});
+
+
+
+
 
 //  var tutu = [];
 //  tutu = [1, 2, 3, 4, 5, 7, 8, 9]
