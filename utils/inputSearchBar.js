@@ -4,20 +4,16 @@ import { recipesWithoutAccent } from "./createRecipesWithoutAccent.js";
 
 export function inputSearchBar(originList, list, result){
     let array =[];
-    var beforeFirstLetter =1;
-
-    //----- VERIFICATION SI LA PERSONNE N'A PAS COMMENCE PAR TAPER UN ESPACE-------------
-    if(result.value.charCodeAt(0)==32 && beforeFirstLetter===1){ // la personne a entré un espace
-        result.value="";   // on remets le champ à 0.
+   
+    //--------------------- VERIFICATION DE ESPACES------------------------
+    if(result.value.charCodeAt(result.value.length-1)==32 ) {   // Si touche espace cliquée
+        if(result.value.length==1 || result.value.charCodeAt(result.value.length-2)==32) { 
+        result.value = result.value.slice(0, result.value.length-1);
+        }
     }
-    else {
-        beforeFirstLetter=0; //on à bien rentré un caractère au début(verification devient inactif)
-    }
-
-    if (result.value.charCodeAt(0)==32) {   //la personne a effacé sa demande, on remet la suppression des espaces actif
-        beforeFirstLetter=1;  
-    }
+   
     var stringreceived = result.value.toLowerCase().trim();
+    console.log(stringreceived);
     
     const accentLetterArray =  ['à','á','â','é','è','ê','ë','ì','í','ï','î','ò','ó','ô','ù','ú','û','ü','ç'];
     const withoutletterArray = ['a','a','a','e','e','e','e','i','i','i','i','o','o','o','u','u','u','u','c'];
