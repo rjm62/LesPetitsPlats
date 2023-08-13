@@ -1,12 +1,12 @@
 import recipes from './data/recipes.js'; //récupération des recettes depuis le fichier recipes.js
 //console.log(recipes);
 
-import {choiceDisplay} from "./utils/tag.js";
-import {arrayImprovement} from "./utils/arrayImprovement.js";
-import {createRecipeCards} from "./utils/createRecipeCards.js";
+import {choiceDisplay} from "./js/tag.js";
+import {arrayImprovement} from "./js/arrayImprovement.js";
+import {createRecipeCards} from "./js/createRecipeCards.js";
 // import {filterRecipes} from './utils/filterRecipes.js';
-import {inputSearchBar} from './utils/inputSearchBar.js';
-import {recipesWithoutAccent} from './utils/createRecipesWithoutAccent.js'
+import {inputSearchBar} from './js/inputSearchBar.js';
+import {recipesWithoutAccent} from './js/createRecipesWithoutAccent.js'
 
 var ingredientsArray = new Array();
 var applianceArray = new Array();
