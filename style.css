@@ -273,7 +273,7 @@ figcaption {
     padding-left: 6px;
 }
 
-.choicesList {
+.tagsList {
     display:flex;
     justify-content: start;
     align-items: start;
@@ -284,7 +284,7 @@ figcaption {
     padding: 20px 100px;
 }
 
-.choiceContainer {
+.tagContainer {
     display:flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -298,12 +298,12 @@ figcaption {
    
 }
 
-.choiceContainer p {
+.tagContainer p {
     font-family: "Manrope";
     font-weight: bold;
 }
 
-.choiceContainer .closeIcon {
+.tagContainer .closeIcon {
     cursor: pointer
 }
 

@@ -89,7 +89,6 @@ export function createRecipeCards(recipes) {
         
               
         fifi.push(recipeCard);
-        // console.log(fifi);
         
     }
     // affichage du nombre de recettes selectionnées par input
@@ -114,5 +113,5 @@ export function createRecipeCards(recipes) {
     }
 
     // console.log(`ligne 93 ${fifi}`);
-    return fifi
+    return [ingredientsAr, applianceAr, ustensilsAr];
 }
