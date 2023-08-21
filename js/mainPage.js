@@ -120,7 +120,12 @@ searchBarInput.addEventListener("keyup", function(event) {
             var arrayApplianceReduce = [];
             var arrayUstensilsReduce = [];
             var toto = 0;
+            if(coco==undefined) {
+                recip=recipes;
+            }
+            else {
             recip = coco;
+            }
             console.log(arrayIngredientsTag);
             for(let j =0; j<arrayIngredientsTag.length; j++) {
                 arrayIngredientsReduce.push(arrayIngredientsTag[j]);
