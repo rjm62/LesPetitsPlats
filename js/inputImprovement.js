@@ -8,8 +8,6 @@ export function inputImprovement(result) {
     }
    
     var stringreceived = result.value.toLowerCase().trim();
-    console.log(stringreceived);
-    
     const accentLetterArray =  ['à','á','â','é','è','ê','ë','ì','í','ï','î','ò','ó','ô','ù','ú','û','ü','ç'];
     const withoutletterArray = ['a','a','a','e','e','e','e','i','i','i','i','o','o','o','u','u','u','u','c'];
     

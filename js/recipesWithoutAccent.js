@@ -76,7 +76,5 @@ for(let t =0; t<list.length; t++){
         list[t].ustensils[k] = " "+list[t].ustensils[k]+" ";
     }
 }
-
-    console.log(list);
     return list;
 }

@@ -6,18 +6,6 @@ import { inputImprovement } from "./inputImprovement.js";
 
 
 export function searchByInput(originList, list, result){
-
-console.log(originList);
-console.log(list);
-console.log(result);
-console.log(list);
-
-
-
-
-
-
-
     var array1 =[];
     let array =[];
     let stringreceived = inputImprovement(result);
@@ -29,7 +17,6 @@ console.log(list);
         let reduceArraySecond = reduceArrayFirst.filter(val => !array2.includes(val));
         
         array = array1.concat(array2);
-        console.log(array);
 
         reduceArraySecond.forEach(element => {  
             var array3 = element.ingredients.filter(recipe => recipe.ingredient.toLowerCase().includes(" "+stringreceived));
@@ -43,37 +30,14 @@ console.log(list);
             for(let d=0; d<array.length; d++) {
                 if (originList[f].id == array[d].id) {
                     newList.push(originList[f]);
-                    console.log(newList);
                 }
             }
         }   
         var newFilter = createRecipeCards(newList, array);
+        var list = recipesWithoutAccent(newList);
         filterRecipes(newFilter, list, newList);
-
-        // let ereaseTags = document.querySelector(".tagsList");
-        // ereaseTags.innerHTML ="";
-
-        // let ereaseInput= [];
-        // ereaseInput = document.querySelectorAll("nav form input");
-        // for(let i =0; i<ereaseInput.length; i++) {
-        // console.log(ereaseInput[0].value);
-        // ereaseInput[i].value ="";
-        // }
-        console.log("c'est là");
-    } else {
-        // var filterReset =createRecipeCards(originList, list);
-        // filterRecipes(filterReset, list);
-        // let ereaseTags = document.querySelector(".tagsList");
-        // ereaseTags.innerHTML ="";
-
-        // let ereaseInput= [];
-        // ereaseInput = document.querySelectorAll("nav form input");
-        // for(let i =0; i<ereaseInput.length; i++) {
-        // console.log(ereaseInput[0].value);
-        // ereaseInput[i].value ="";
-        // }
-        console.log("ou là");
     } 
+ 
      return array; 
 }
 

@@ -12,13 +12,6 @@ export function tagDisplay(text) {
     closeIcon.className ="closeIcon"
     const X = document.createElement("i")
     X.className = "fa-solid fa-x";
-    // closeIcon.addEventListener("click", function removeTag(event){ //écoute X des conteneurs de tags
-    //     let removeTag = event.target;
-    //     let removeContainer = removeTag.parentNode.parentNode; // récupération du texte du container
-    //     removeContainer.style.display = "none";   // suppression du tag
-    //     tagRemoved(removeContainer.innerText); // fonction qui va remettre les recettes en fonction des tags et input générale
-    //    });
-
     closeIcon.appendChild(X);
     tagContainer.appendChild(choice);
     tagContainer.appendChild(closeIcon);

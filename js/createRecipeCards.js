@@ -112,6 +112,5 @@ export function createRecipeCards(recipes) {
          message.style.display = "none";
     }
 
-    // console.log(`ligne 93 ${fifi}`);
     return [ingredientsAr, applianceAr, ustensilsAr];
 }
