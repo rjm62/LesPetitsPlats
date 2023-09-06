@@ -1,18 +1,19 @@
 import recipes from '../data/recipes.js'; //récupération des recettes depuis le fichier recipes.js
 import {tagDisplay} from "./tagDisplay.js";
-import {arrayImprovement} from "./arrayImprovement.js";
-import { inputImprovement } from './inputImprovement.js';
+// import {arrayImprovement} from "./arrayImprovement.js";
+// import { inputImprovement } from './inputImprovement.js';
 import {createRecipeCards} from "./createRecipeCards.js";
 import {searchByInput} from './searchByInput.js';
 import {recipesWithoutAccent} from './recipesWithoutAccent.js'
 import { filterRecipes } from './filterRecipes.js';
 import {tag} from "./tagAdd.js";
-import { tagRemov } from './tagRemove.js';
+// import { tagRemov } from './tagRemove.js';
 
 var arrayIngredientsTag =[];
 var arrayApplianceTag = [];
 var arrayUstensilsTag = [];
 var newArrayRecipes =[];
+var toutou=[];
 
 //--------------------- mise en place de toutes les recettes------------------------------
 var selectedRecipes = recipes;
@@ -27,9 +28,10 @@ searchBarInput.addEventListener("keyup", function(event) {
     let removedByX = document.querySelector(".searchBar i");
     removedByX.style.display ="flex";
     let result= event.target;
-    console.log(selectedRecipes);
-    var toutou =searchByInput(selectedRecipes,obelix,result);
+    toutou =searchByInput(selectedRecipes,obelix,result);
+    console.log(toutou);
 });
+console.log(toutou);
 
 //--------écoute si suppression de la demande dans l'input de la barre centrale--------------------
 let removedByX = document.querySelector(".searchBar i");
@@ -42,9 +44,12 @@ removedByX.addEventListener("click", function() {
 
 function reinit() {        //de ce fait remise à jour des filtres et choix par Tag
     selectedRecipes = recipes; // on remet toutes les recettes
+    // selectedRecipesByMainInput=undefined;
     var asterix = createRecipeCards(recipes);
     var titi = filterRecipes(asterix,obelix);
-//---  reintégration des tags précédemment sélectionnés------------
+
+//reintégration des tags précédemment sélectionnés-----------------------------------------------
+
 //pour ingrédients
      var reintegrationOfIngredientsTag =[];
      reintegrationOfIngredientsTag = JSON.parse(JSON.stringify(arrayIngredientsTag));//copie profonde tableau
@@ -54,10 +59,12 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
             reintegrationOfIngredientsTag.pop(); //on supprime le tag dans le tableau profond
         } while(reintegrationOfIngredientsTag.length!=0); // tant que le tableau profond n'est pas vide
         createRecipeCards(selectedRecipes);  // affichage des recettes selectionnées par les tags
+
     }
+
     
 
-// // pour appareils
+ // pour appareils
     var reintegrationOfApplianceTag=[];
     reintegrationOfApplianceTag = JSON.parse(JSON.stringify(arrayApplianceTag));
     if(1<=reintegrationOfApplianceTag.length) {
@@ -84,9 +91,8 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
 
 //----------Mise en place des - ingrédients - appareils - ustensiles, dans les filtres de recherches --------------
     export function display (array, container, milou) {
+        console.log(milou);
         var selectedRecipesByMainInput = milou;
-        console.log(array);
-        console.log(selectedRecipesByMainInput);
         container.innerHTML ="";
         for(let w = 0; w<array.length; w++){
             
@@ -112,11 +118,9 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
 
 
                 if(selectedRecipesByMainInput==undefined) {
-                    console.log(selectedRecipesByMainInput);
                 }
                 else {
                 selectedRecipes = selectedRecipesByMainInput;
-                console.log(selectedRecipesByMainInput);
                 }
     
 
@@ -137,17 +141,19 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
             tagRemoved[s].addEventListener("click", function removeTag(event){ 
             let removeTag = event.target;
             event.stopImmediatePropagation(); 
+
             
-            
-            if(selectedRecipesByMainInput==undefined) {
+            let check = document.querySelector(".searchBar input");
+            console.log(check.value);
+
+            if(check==undefined) {
                 selectedRecipes=recipes;
-                console.log(selectedRecipesByMainInput);
+                console.log(selectedRecipes);
             }
             else {
-            selectedRecipes = selectedRecipesByMainInput;
-            console.log(selectedRecipesByMainInput);
+            selectedRecipes = searchByInput(selectedRecipes,obelix,check);
+            console.log(selectedRecipes);
             }
-
 
 
             // selectedRecipes = recipes; 
@@ -177,11 +183,9 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
             var toto = 0;
             if(selectedRecipesByMainInput==undefined) {
                 selectedRecipes=recipes;
-                console.log(selectedRecipesByMainInput);
             }
             else {
             selectedRecipes = selectedRecipesByMainInput;
-            console.log(selectedRecipesByMainInput);
             }
             for(let j =0; j<arrayIngredientsTag.length; j++) {
                 arrayIngredientsReduce.push(arrayIngredientsTag[j]);
@@ -200,10 +204,10 @@ function reinit() {        //de ce fait remise à jour des filtres et choix par 
                 toto = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[2]);
                 selectedRecipes = toto;
             }
-
             asterix = createRecipeCards(selectedRecipes);
             obelix = recipesWithoutAccent(selectedRecipes);
              filterRecipes(asterix, obelix);
+             selectedRecipes = searchByInput(selectedRecipes,obelix,check);
            
          });
         }   

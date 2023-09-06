@@ -9,9 +9,7 @@ switch(item) {
             for(let j =0; j<dataArray[i].ingredients.length; j++) {
                 if(dataArray[i].ingredients[j].ingredient.toLowerCase() == arrayIngredients[arrayIngredients.length-1].toLowerCase()) {
                     newDataArray.push(dataArray[i]);
-                    dataArray.pop; 
-                    console.log(arrayIngredients[arrayIngredients.length-1]);
-                    console.log(dataArray[i]);                   
+                    dataArray.pop;                
                 }
             }
         }     

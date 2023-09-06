@@ -4,6 +4,7 @@ import { tagDisplay } from "./tagDisplay.js";
 import {display} from "./mainPage.js";
 
 export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput) {
+    console.log(recipesByMainInput);
     var arrays = [];
     var arraysNoAccent = [];
     arrays[0] = arrayImprovement(listWithAcccent[0]);
@@ -11,29 +12,29 @@ export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput)
     arrays[2] = arrayImprovement(listWithAcccent[2]);
 
 
-    let mickey =[];
-    mickey[0]= [];
-    mickey[1] =[]; 
-    mickey[2] =[];
+    let temporaryArrays =[];
+    temporaryArrays[0]= [];
+    temporaryArrays[1] =[]; 
+    temporaryArrays[2] =[];
 
     for(let i =0; i< listNoAccent.length; i++) {
         for(let j =0; j<listNoAccent[i].ingredients.length; j++) {
-            mickey[0].push(listNoAccent[i].ingredients[j].ingredient);
+            temporaryArrays[0].push(listNoAccent[i].ingredients[j].ingredient);
         }   
     }
     for(let i =0; i<listNoAccent.length; i++) {
-        mickey[1].push(listNoAccent[i].appliance);
+        temporaryArrays[1].push(listNoAccent[i].appliance);
     }
     for(let i =0; i< listNoAccent.length; i++) {
         for(let j =0; j<listNoAccent[i].ustensils.length; j++){
-            mickey[2].push(listNoAccent[i].ustensils[j]);
+            temporaryArrays[2].push(listNoAccent[i].ustensils[j]);
         }
     }
 
 
-    arraysNoAccent[0] = arrayImprovement(mickey[0]);
-    arraysNoAccent[1] = arrayImprovement(mickey[1]);
-    arraysNoAccent[2] = arrayImprovement(mickey[2]);
+    arraysNoAccent[0] = arrayImprovement(temporaryArrays[0]);
+    arraysNoAccent[1] = arrayImprovement(temporaryArrays[1]);
+    arraysNoAccent[2] = arrayImprovement(temporaryArrays[2]);
 
 
     var containers = [];
@@ -43,16 +44,18 @@ export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput)
 
     var previousArryLength=0;
 
+    //appel de la fonction d'affichage--------------------------------------------------
     for (let r=0; r<3; r++ ) {
         display(arrays[r], containers[r], recipesByMainInput );
     }
 
+
+    //----------------------écoute si entrée dans input------------------------------------
     const searchInput= document.querySelectorAll(".search input");
     const displayX = document.querySelectorAll(".search i");
     for(let s=0; s<3; s++) {
         let stringreceived =[];
         searchInput[s].addEventListener("keyup", function(event) {
-            console.log(stringreceived);
             let result= event.target;
             event.stopImmediatePropagation(); 
             stringreceived = inputImprovement(result);
@@ -79,7 +82,7 @@ export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput)
         stringreceived=[];
     }
 
-    //suppression de la valeur de l'entrée input par la croix
+    //--------------suppression de la valeur de l'entrée input par la croix-----------------------------
     const closeFilterByX= document.querySelectorAll(".search i");
     for(let s=0; s<3; s++) {
         closeFilterByX[s].addEventListener("click", function(event) { //écoute des 3 croix
