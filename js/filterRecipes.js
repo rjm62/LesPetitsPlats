@@ -4,7 +4,7 @@ import { tagDisplay } from "./tagDisplay.js";
 import {display} from "./mainPage.js";
 
 export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput) {
-    console.log(recipesByMainInput);
+    var coco = recipesByMainInput;
     var arrays = [];
     var arraysNoAccent = [];
     arrays[0] = arrayImprovement(listWithAcccent[0]);
@@ -76,6 +76,7 @@ export function filterRecipes(listWithAcccent, listNoAccent, recipesByMainInput)
                         }
                     }
                 }
+  
                 display(arraysort, containers[s], recipesByMainInput);
             }
         });

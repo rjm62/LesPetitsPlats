@@ -25,5 +25,5 @@ export function inputImprovement(result) {
         stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), "");
     }
     let toto = stringreceived;
-return toto;
+    return toto;
 }

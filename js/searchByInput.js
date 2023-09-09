@@ -1,6 +1,5 @@
 import { createRecipeCards } from "./createRecipeCards.js";
 import { recipesWithoutAccent } from "./recipesWithoutAccent.js";
-import { arrayImprovement } from "./arrayImprovement.js";
 import { filterRecipes } from "./filterRecipes.js";
 import { inputImprovement } from "./inputImprovement.js";
 
@@ -36,9 +35,7 @@ export function searchByInput(originList, list, result){
         var newFilter = createRecipeCards(newList, array);
         var list = recipesWithoutAccent(newList);
         filterRecipes(newFilter, list, newList);
-        console.log(newList);
     } 
- 
      return array, newList; 
 }
 
