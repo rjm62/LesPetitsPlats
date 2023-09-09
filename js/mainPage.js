@@ -10,14 +10,20 @@ var arrayIngredientsTag =[];
 var arrayApplianceTag = [];
 var arrayUstensilsTag = [];
 var newArrayRecipes =[];
-var toutou=[];
+var firstMainInput=[];
+var selectedRecipes =[];
+var ArraysForFilters =[];
+var recipesButWithoutAccent =[];
 
+init();
+
+function init() {
 //--------------------- mise en place de toutes les recettes------------------------------
-var selectedRecipes = recipes;
-var asterix = createRecipeCards(recipes);
-var obelix = recipesWithoutAccent(recipes);
-
-var titi = filterRecipes(asterix,obelix);
+    selectedRecipes = recipes;
+    ArraysForFilters = createRecipeCards(recipes);
+    recipesButWithoutAccent = recipesWithoutAccent(recipes);
+    filterRecipes(ArraysForFilters,recipesButWithoutAccent);
+}
 
 //-------------écoute si entrée de caractères dans le input de la barre centrale-------------------
 const searchBarInput = document.querySelector(".searchBar input");
@@ -25,7 +31,7 @@ searchBarInput.addEventListener("keyup", function(event) {
     let removedByX = document.querySelector(".searchBar i");
     removedByX.style.display ="flex";
     let result= event.target;
-    toutou =searchByInput(selectedRecipes,obelix,result);
+    firstMainInput =searchByInput(selectedRecipes,recipesButWithoutAccent,result);
 });
 
 //--------écoute si suppression de la demande dans l'input de la barre centrale--------------------
@@ -34,15 +40,12 @@ removedByX.addEventListener("click", function() {
     let value = document.querySelector(".searchBar input");
     value.value= "";
     removedByX.style.display="none";  // suppression de la croix
-    reinit();
+    init();
+    reinitTag();
 });
 
-function reinit() {        //de ce fait remise à jour des filtres et choix par Tag
-    selectedRecipes = recipes; // on remet toutes les recettes
-    var asterix = createRecipeCards(recipes);
-    var titi = filterRecipes(asterix,obelix);
-
-
+function reinitTag() {   //de ce fait remise à jour des filtres et choix par Tag
+  
 //reintégration des tags précédemment sélectionnés-----------------------------------------------
 
 //pour ingrédients
@@ -111,8 +114,7 @@ export function display (array, container, recipesByMainInput) {
             console.log(rara.value);
             console.log(tago.length);
             if( rara.value!= "" && tago.length==1) {
-                selectedRecipes = toutou;
-                console.log(toutou);
+                selectedRecipes = firstMainInput;
             }
             else {
                 selectedRecipes== recipes
@@ -120,9 +122,9 @@ export function display (array, container, recipesByMainInput) {
 
         var toto =  tag(selectedRecipes,newArrayRecipes, arrayIngredientsTag, arrayApplianceTag, arrayUstensilsTag, position); 
             selectedRecipes = toto;
-            asterix = createRecipeCards(selectedRecipes);
-            obelix = recipesWithoutAccent(selectedRecipes);
-            filterRecipes(asterix, obelix, recipesByMainInput);
+            ArraysForFilters = createRecipeCards(selectedRecipes);
+            recipesButWithoutAccent = recipesWithoutAccent(selectedRecipes);
+            filterRecipes(ArraysForFilters, recipesButWithoutAccent, recipesByMainInput);
         });
     }
 
@@ -139,11 +141,12 @@ export function display (array, container, recipesByMainInput) {
             selectedRecipes=recipes;
         }
         else {
-            selectedRecipes = searchByInput(selectedRecipes,obelix,check);
+            selectedRecipes = searchByInput(selectedRecipes,recipesButWithoutAccent,check);
         }
 
         let removeContainer = removeTag.parentNode.parentNode; // récupération du texte du container
-        tagRemoved[s].remove();// suppression du tag
+        removeContainer.style.display = "none"; 
+        tagRemoved[s].remove(); // suppression du tag
 
         const index = arrayIngredientsTag.indexOf(removeContainer.innerText);
         if(index!=-1) {
@@ -189,10 +192,10 @@ export function display (array, container, recipesByMainInput) {
             toto = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[2]);
             selectedRecipes = toto;
         }
-        asterix = createRecipeCards(selectedRecipes);
-        obelix = recipesWithoutAccent(selectedRecipes);
-            filterRecipes(asterix, obelix);
-            selectedRecipes = searchByInput(selectedRecipes,obelix,check);
+        ArraysForFilters = createRecipeCards(selectedRecipes);
+        recipesButWithoutAccent = recipesWithoutAccent(selectedRecipes);
+            filterRecipes(ArraysForFilters, recipesButWithoutAccent);
+            selectedRecipes = searchByInput(selectedRecipes,recipesButWithoutAccent,check);
         
         });
     }   
