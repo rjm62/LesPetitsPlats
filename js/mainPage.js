@@ -117,11 +117,11 @@ export function display (array, container, recipesByMainInput) {
                 selectedRecipes = firstMainInput;
             }
             else {
-                selectedRecipes== recipes
+                selectedRecipes== recipes;
             }
 
-        var toto =  tag(selectedRecipes,newArrayRecipes, arrayIngredientsTag, arrayApplianceTag, arrayUstensilsTag, position); 
-            selectedRecipes = toto;
+        var tagCreated = tag(selectedRecipes,newArrayRecipes, arrayIngredientsTag, arrayApplianceTag, arrayUstensilsTag, position); 
+            selectedRecipes = tagCreated;
             ArraysForFilters = createRecipeCards(selectedRecipes);
             recipesButWithoutAccent = recipesWithoutAccent(selectedRecipes);
             filterRecipes(ArraysForFilters, recipesButWithoutAccent, recipesByMainInput);
@@ -168,7 +168,7 @@ export function display (array, container, recipesByMainInput) {
         var arrayIngredientsReduce = [];
         var arrayApplianceReduce = [];
         var arrayUstensilsReduce = [];
-        var toto = 0;
+        var tagReduced = 0;
         if(selectedRecipesByMainInput==undefined) {
             selectedRecipes=recipes;
         }
@@ -177,20 +177,20 @@ export function display (array, container, recipesByMainInput) {
         }
         for(let j =0; j<arrayIngredientsTag.length; j++) {
             arrayIngredientsReduce.push(arrayIngredientsTag[j]);
-            toto = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[0]);
-            selectedRecipes = toto;
+            tagReduced = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[0]);
+            selectedRecipes = tagReduced;
         }
 
         for(let j =0; j<arrayApplianceTag.length; j++) {
             arrayApplianceReduce.push(arrayApplianceTag[j]);
-            toto = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[1]);
-            selectedRecipes = toto;
+            tagReduced = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[1]);
+            selectedRecipes = tagReduced;
         }
 
         for(let j =0; j<arrayUstensilsTag.length; j++) {
             arrayUstensilsReduce.push(arrayUstensilsTag[j]);
-            toto = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[2]);
-            selectedRecipes = toto;
+            tagReduced = tag(selectedRecipes,newArrayRecipes,arrayIngredientsReduce, arrayApplianceReduce, arrayUstensilsReduce, positions[2]);
+            selectedRecipes = tagReduced;
         }
         ArraysForFilters = createRecipeCards(selectedRecipes);
         recipesButWithoutAccent = recipesWithoutAccent(selectedRecipes);

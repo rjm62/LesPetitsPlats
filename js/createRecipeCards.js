@@ -30,7 +30,7 @@ export function createRecipeCards(recipes) {
 
         const recipeDescription = document.createElement("div");   // conteneur description
         recipeDescription.className = "recipeDescription";
-        const descriptionName = document.createElement("h5")
+        const descriptionName = document.createElement("h5");
         descriptionName.className = "descriptionName";
         descriptionName.innerText = "RECETTE";
         const descriptionText = document.createElement("p");
@@ -40,15 +40,15 @@ export function createRecipeCards(recipes) {
         recipeDescription.appendChild(descriptionText);
 
         const ingredientsTitle = document.createElement("h5");       
-        ingredientsTitle.className = "ingredientsTitle"
-        ingredientsTitle.innerText = "INGREDIENTS"
+        ingredientsTitle.className = "ingredientsTitle";
+        ingredientsTitle.innerText = "INGREDIENTS";
 
         const ingredientsContainer = document.createElement("div");  // conteneur ingrédients et quantités
         ingredientsContainer.className = "ingredientsContainer";
         
         for(let j=0; j<data.ingredients.length; j++) {
             const ingredientAndQuantityContainer = document.createElement("div");
-            ingredientAndQuantityContainer.className = "ingredientAndQuantityContainer"
+            ingredientAndQuantityContainer.className = "ingredientAndQuantityContainer";
             const ingredientName = document.createElement("p");
             ingredientName.className = "ingredientName";
             ingredientName.innerText = data.ingredients[j].ingredient;

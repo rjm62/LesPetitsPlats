@@ -24,6 +24,5 @@ export function inputImprovement(result) {
     if(stringreceived.charAt(stringreceived.length-1) == "s") {
         stringreceived = stringreceived.replace(stringreceived.charAt(stringreceived.length-1), "");
     }
-    let toto = stringreceived;
-    return toto;
+    return stringreceived;
 }
