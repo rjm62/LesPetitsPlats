@@ -8,7 +8,6 @@
         <meta name="description" content="site WEB qui répertorie des recettes de cuisine avec possibilité de selectionner des ingrédients 
         spécifiques afin d'obtenir uniquement les recettes qui les contiennent ">
         <link rel="stylesheet" href="style.css">
-        <script type = "module" src="js/mainPage.js" defer></script> 
         <script src="https://kit.fontawesome.com/dae4393213.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +16,12 @@
     <body>
         <header>
             <picture>
-                <img src="./assets/photo header.png" alt ="photo d'un plat pour header">
+                <img src="./assets/photoHeader.png" alt ="photo d'un plat pour header">
             </picture>
             <div class="nameAndLogo">
                 <img src="./assets/Logo.png" alt ="logo avec écrit les petits plats">
             </div>
-            <h1>CHERCHEZ PARMI PLUS DE <span>50</span> RECETTES DU QUOTIDIEN,SIMPLES ET D&Eacute;LICIEUSES</h2>
+            <h1>CHERCHEZ PARMI PLUS DE <span>50</span> RECETTES DU QUOTIDIEN,SIMPLES ET D&Eacute;LICIEUSES</h1>
             <form class="searchBar">
                 <input  type="text" placeholder="Rechercher une recette, un ingrédient...">
                 <i class="fa-solid fa-x"></i>
@@ -76,7 +75,7 @@
                         </ul>
                     </div>
                 </div>
-                <h3><span id="recipesNumber"></h3>
+                <h3><span id="recipesNumber"> </span></h3>
             </nav>
             <div class = "tagsList"></div>
             <section class="containerRecipes">
@@ -84,5 +83,6 @@
             <p class="message">Aucune recette ne contient '<span id="input"> </span>' vous pouvez
                 chercher "tarte aux pommes", "poisson",...etc</p>   
         </main>
+        <script type = "module" src="js/mainPage.js"></script> 
     </body>
 </html>
