@@ -137,7 +137,7 @@ export function display (array, container, recipesByMainInput) {
 
         
         let check = document.querySelector(".searchBar input");
-        if(check==undefined) {
+        if(check==undefined || check =="") {
             selectedRecipes=recipes;
         }
         else {

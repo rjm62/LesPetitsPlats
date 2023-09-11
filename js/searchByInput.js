@@ -36,7 +36,7 @@ export function searchByInput(originList, list, result){
         var list = recipesWithoutAccent(newList);
         filterRecipes(newFilter, list, newList);
     } 
-     return array, newList; 
+     return newList; 
 }
 
 
